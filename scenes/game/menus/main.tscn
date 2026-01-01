@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://b4m1wi2kp8d1l"]
+
+[ext_resource type="Script" uid="uid://ld4ndmc6mfuf" path="res://scenes/game/menus/main.gd" id="1_a4sn1"]
+[ext_resource type="Script" uid="uid://cdu7eqa6q6u2i" path="res://scenes/core/items/nodes/item_2d.gd" id="2_yude7"]
+[ext_resource type="Script" uid="uid://dx15io88tra7t" path="res://scenes/core/items/resources/ranged_weapon.gd" id="3_7vvva"]
+[ext_resource type="Shader" uid="uid://pe35f4j2sr10" path="res://shaders/rarity.gdshader" id="3_bidta"]
+[ext_resource type="Texture2D" uid="uid://djiv6d5fhe0c" path="res://assets/img/items/guns.png" id="4_fgb3g"]
+
+[sub_resource type="Resource" id="Resource_tglxm"]
+script = ExtResource("3_7vvva")
+projectile = "projectile"
+max_ammo = 10
+unlimited_ammo = true
+spread_angle = 0.0
+damage_min = 1
+damage_max = 1
+attack_rate = 0.1
+slot = 9
+name = "black pistol"
+texture = ExtResource("4_fgb3g")
+hframes = 3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yude7"]
+shader = ExtResource("3_bidta")
+shader_parameter/rarity = 0
+shader_parameter/intensity = 1.0
+shader_parameter/border_width = 2.0
+
+[node name="Main" type="Node2D" unique_id=129581876]
+script = ExtResource("1_a4sn1")
+
+[node name="Item2D" type="Node2D" parent="." unique_id=232146393]
+position = Vector2(312, 159)
+script = ExtResource("2_yude7")
+item = SubResource("Resource_tglxm")
+create_random_item = true
+sprite_material = SubResource("ShaderMaterial_yude7")
+metadata/_custom_type_script = "uid://cdu7eqa6q6u2i"
