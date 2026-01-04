@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ItemBelt" format=3 uid="uid://vyyjwjkp70qw"]
+
+[ext_resource type="Script" uid="uid://drotf454prdmb" path="res://scenes/core/items/resources/item.gd" id="1_8ih1e"]
+[ext_resource type="Script" uid="uid://cn4l2rnjadcn8" path="res://scenes/core/items/resources/item_belt.gd" id="2_yfm7d"]
+
+[resource]
+script = ExtResource("2_yfm7d")
+metadata/_custom_type_script = "uid://cn4l2rnjadcn8"

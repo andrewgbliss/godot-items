@@ -3,16 +3,16 @@
 class_name Equipable extends Item
 
 enum EquipableSlotType {
-	None,
-	Helmet,
-	Neck,
-	Chest,
-	Waist,
-	Legs,
-	Boots,
-	Gloves,
-	Finger,
-	Hand
+	NONE,
+	HELMET,
+	NECK,
+	CHEST,
+	WAIST,
+	LEGS,
+	BOOTS,
+	GLOVES,
+	FINGER,
+	HAND
 }
 
 enum EquipableEffect {
@@ -35,46 +35,47 @@ enum EquipableEffect {
 @export var level_requirement: int = 0
 @export var slot: EquipableSlotType
 @export var equip_on_pickup: bool = false
+@export var handed: int = 1
 @export var effect: Array[EquipableEffect] = []
 
 func get_slot_type(s: String):
 	match s:
 		"head":
-			return EquipableSlotType.Helmet
+			return EquipableSlotType.HELMET
 		"neck":
-			return EquipableSlotType.Neck
+			return EquipableSlotType.NECK
 		"chest":
-			return EquipableSlotType.Chest
+			return EquipableSlotType.CHEST
 		"waist":
-			return EquipableSlotType.Waist
+			return EquipableSlotType.WAIST
 		"legs":
-			return EquipableSlotType.Legs
+			return EquipableSlotType.LEGS
 		"feet":
-			return EquipableSlotType.Boots
+			return EquipableSlotType.BOOTS
 		"hands":
-			return EquipableSlotType.Gloves
+			return EquipableSlotType.GLOVES
 		"hand":
-			return EquipableSlotType.Hand
+			return EquipableSlotType.HAND
 		_:
-			return EquipableSlotType.None
+			return EquipableSlotType.NONE
 
 func save_slot_type(s: EquipableSlotType):
 	match s:
-		EquipableSlotType.Helmet:
+		EquipableSlotType.HELMET:
 			return "head"
-		EquipableSlotType.Neck:
+		EquipableSlotType.NECK:
 			return "neck"
-		EquipableSlotType.Chest:
+		EquipableSlotType.CHEST:
 			return "chest"
-		EquipableSlotType.Waist:
+		EquipableSlotType.WAIST:
 			return "waist"
-		EquipableSlotType.Legs:
+		EquipableSlotType.LEGS:
 			return "legs"
-		EquipableSlotType.Boots:
+		EquipableSlotType.BOOTS:
 			return "feet"
-		EquipableSlotType.Gloves:
+		EquipableSlotType.GLOVES:
 			return "hands"
-		EquipableSlotType.Hand:
+		EquipableSlotType.HAND:
 			return "hand"
 		_:
 			return "none"

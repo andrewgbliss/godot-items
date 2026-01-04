@@ -2,23 +2,12 @@
 
 [ext_resource type="Script" uid="uid://ld4ndmc6mfuf" path="res://scenes/game/menus/main.gd" id="1_a4sn1"]
 [ext_resource type="Script" uid="uid://cdu7eqa6q6u2i" path="res://scenes/core/items/nodes/item_2d.gd" id="2_yude7"]
-[ext_resource type="Script" uid="uid://dx15io88tra7t" path="res://scenes/core/items/resources/ranged_weapon.gd" id="3_7vvva"]
 [ext_resource type="Shader" uid="uid://pe35f4j2sr10" path="res://shaders/rarity.gdshader" id="3_bidta"]
-[ext_resource type="Texture2D" uid="uid://djiv6d5fhe0c" path="res://assets/img/items/guns.png" id="4_fgb3g"]
-
-[sub_resource type="Resource" id="Resource_tglxm"]
-script = ExtResource("3_7vvva")
-projectile = "projectile"
-max_ammo = 10
-unlimited_ammo = true
-spread_angle = 0.0
-damage_min = 1
-damage_max = 1
-attack_rate = 0.1
-slot = 9
-name = "black pistol"
-texture = ExtResource("4_fgb3g")
-hframes = 3
+[ext_resource type="Script" path="res://scenes/core/ui/menus/menu/menu_stack.gd" id="4_7vvva"]
+[ext_resource type="PackedScene" uid="uid://3y04wdx2golm" path="res://scenes/core/ui/menus/menu/inventory/inventory_menu.tscn" id="4_bidta"]
+[ext_resource type="Resource" uid="uid://cbceoiy0p6es3" path="res://data/resources/inventory.tres" id="4_tglxm"]
+[ext_resource type="Resource" uid="uid://bdf04pgn0w88r" path="res://data/resources/equipment.tres" id="5_wkbu0"]
+[ext_resource type="Resource" uid="uid://vyyjwjkp70qw" path="res://data/resources/item_belt.tres" id="6_irw51"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yude7"]
 shader = ExtResource("3_bidta")
@@ -26,13 +15,56 @@ shader_parameter/rarity = 0
 shader_parameter/intensity = 1.0
 shader_parameter/border_width = 2.0
 
-[node name="Main" type="Node2D" unique_id=129581876]
+[node name="Main" type="Node2D" unique_id=129581876 node_paths=PackedStringArray("inventory_menu")]
 script = ExtResource("1_a4sn1")
+inventory_menu = NodePath("MenuStack/InventoryMenu")
+
+[node name="MenuStack" type="Node" parent="." unique_id=1378897832 node_paths=PackedStringArray("audio_transition_in", "audio_transition_out", "audio_select")]
+process_mode = 3
+script = ExtResource("4_7vvva")
+audio_transition_in = NodePath("AudioStreamPlayer")
+audio_transition_out = NodePath("AudioStreamPlayer")
+audio_select = NodePath("AudioStreamPlayer")
+
+[node name="InventoryMenu" parent="MenuStack" unique_id=549998370 instance=ExtResource("4_bidta")]
+inventory = ExtResource("4_tglxm")
+equipment = ExtResource("5_wkbu0")
+item_belt = ExtResource("6_irw51")
+menu_name = "InventoryMenu"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MenuStack" unique_id=439308847]
 
 [node name="Item2D" type="Node2D" parent="." unique_id=232146393]
-position = Vector2(312, 159)
+position = Vector2(134, 94)
 script = ExtResource("2_yude7")
-item = SubResource("Resource_tglxm")
+create_random_item = true
+sprite_material = SubResource("ShaderMaterial_yude7")
+metadata/_custom_type_script = "uid://cdu7eqa6q6u2i"
+
+[node name="Item2D2" type="Node2D" parent="." unique_id=1892747056]
+position = Vector2(234, 94)
+script = ExtResource("2_yude7")
+create_random_item = true
+sprite_material = SubResource("ShaderMaterial_yude7")
+metadata/_custom_type_script = "uid://cdu7eqa6q6u2i"
+
+[node name="Item2D3" type="Node2D" parent="." unique_id=358027944]
+position = Vector2(313, 94)
+script = ExtResource("2_yude7")
+create_random_item = true
+sprite_material = SubResource("ShaderMaterial_yude7")
+metadata/_custom_type_script = "uid://cdu7eqa6q6u2i"
+
+[node name="Item2D4" type="Node2D" parent="." unique_id=641806366]
+position = Vector2(415, 91)
+script = ExtResource("2_yude7")
+create_random_item = true
+sprite_material = SubResource("ShaderMaterial_yude7")
+metadata/_custom_type_script = "uid://cdu7eqa6q6u2i"
+
+[node name="Item2D5" type="Node2D" parent="." unique_id=256694012]
+position = Vector2(518, 91)
+script = ExtResource("2_yude7")
 create_random_item = true
 sprite_material = SubResource("ShaderMaterial_yude7")
 metadata/_custom_type_script = "uid://cdu7eqa6q6u2i"

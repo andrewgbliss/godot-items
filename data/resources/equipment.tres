@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Equipment" format=3 uid="uid://bdf04pgn0w88r"]
+
+[ext_resource type="Script" uid="uid://cwaaqivnrog6d" path="res://scenes/core/items/resources/equipment.gd" id="1_fviff"]
+
+[resource]
+script = ExtResource("1_fviff")
+metadata/_custom_type_script = "uid://cwaaqivnrog6d"

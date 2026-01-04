@@ -37,10 +37,8 @@ static func create_item(key: StringName, item_name: String) -> Item:
 
 	if item_data.type == "currency":
 		return create_currency(item_data, atlas)
-	elif item_data.type == "melee_weapon":
-		return create_melee_weapon(item_data, atlas)
-	elif item_data.type == "ranged_weapon":
-		return create_ranged_weapon(item_data, atlas)
+	elif item_data.type == "weapon":
+		return create_weapon(item_data, atlas)
 	elif item_data.type == "armor":
 		return create_armor(item_data, atlas)
 	elif item_data.type == "consumable":
@@ -65,17 +63,11 @@ static func create_currency(item_data, atlas):
 	fill_texture(currency, item_data, atlas)
 	return currency
 
-static func create_melee_weapon(item_data, atlas):
-	var melee_weapon = MeleeWeapon.new()
-	melee_weapon.restore(item_data)
-	fill_texture(melee_weapon, item_data, atlas)
-	return melee_weapon
-
-static func create_ranged_weapon(item_data, atlas):
-	var ranged_weapon = RangedWeapon.new()
-	ranged_weapon.restore(item_data)
-	fill_texture(ranged_weapon, item_data, atlas)
-	return ranged_weapon
+static func create_weapon(item_data, atlas):
+	var weapon = Weapon.new()
+	weapon.restore(item_data)
+	fill_texture(weapon, item_data, atlas)
+	return weapon
 
 static func create_armor(item_data, atlas):
 	var armor = Armor.new()

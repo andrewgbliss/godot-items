@@ -2,18 +2,18 @@
 class_name Equipment extends Resource
 
 enum EquipmentSlotType {
-	None,
-	Helmet,
-	Neck,
-	Chest,
-	Waist,
-	Legs,
-	Boots,
-	Gloves,
-	LeftFinger,
-	RightFinger,
-	LeftHand,
-	RightHand
+	NONE,
+	HELMET,
+	NECK,
+	CHEST,
+	WAIST,
+	LEGS,
+	BOOTS,
+	GLOVES,
+	LEFT_FINGER,
+	RIGHT_FINGER,
+	LEFT_HAND,
+	RIGHT_HAND
 }
 
 @export var head: Equipable
@@ -33,76 +33,76 @@ signal equipment_change
 							
 func equip(item: Item, equipment_slot_type: EquipmentSlotType):
 	match equipment_slot_type:
-		EquipmentSlotType.Helmet:
+		EquipmentSlotType.HELMET:
 			head = item
-		EquipmentSlotType.Neck:
+		EquipmentSlotType.NECK:
 			neck = item
-		EquipmentSlotType.Chest:
+		EquipmentSlotType.CHEST:
 			chest = item
-		EquipmentSlotType.Waist:
+		EquipmentSlotType.WAIST:
 			waist = item
-		EquipmentSlotType.Legs:
+		EquipmentSlotType.LEGS:
 			legs = item
-		EquipmentSlotType.Boots:
+		EquipmentSlotType.BOOTS:
 			feet = item
-		EquipmentSlotType.LeftHand:
+		EquipmentSlotType.LEFT_HAND:
 			left_hand = item
-		EquipmentSlotType.RightHand:
+		EquipmentSlotType.RIGHT_HAND:
 			right_hand = item
-		EquipmentSlotType.LeftFinger:
+		EquipmentSlotType.LEFT_FINGER:
 			left_finger = item
-		EquipmentSlotType.RightFinger:
+		EquipmentSlotType.RIGHT_FINGER:
 			right_finger = item
 	equipment_change.emit()
 	
 func unequip(equipment_slot_type: EquipmentSlotType):
 	match equipment_slot_type:
-		EquipmentSlotType.Helmet:
+		EquipmentSlotType.HELMET:
 			head = null
-		EquipmentSlotType.Neck:
+		EquipmentSlotType.NECK:
 			neck = null
-		EquipmentSlotType.Chest:
+		EquipmentSlotType.CHEST:
 			chest = null
-		EquipmentSlotType.Waist:
+		EquipmentSlotType.WAIST:
 			waist = null
-		EquipmentSlotType.Legs:
+		EquipmentSlotType.LEGS:
 			legs = null
-		EquipmentSlotType.Boots:
+		EquipmentSlotType.BOOTS:
 			feet = null
-		EquipmentSlotType.LeftHand:
+		EquipmentSlotType.LEFT_HAND:
 			left_hand = null
-		EquipmentSlotType.RightHand:
+		EquipmentSlotType.RIGHT_HAND:
 			right_hand = null
-		EquipmentSlotType.LeftFinger:
+		EquipmentSlotType.LEFT_FINGER:
 			left_finger = null
-		EquipmentSlotType.RightFinger:
+		EquipmentSlotType.RIGHT_FINGER:
 			right_finger = null
 	equipment_change.emit()
 
 func get_slot_type(slot_type: Equipable.EquipableSlotType) -> EquipmentSlotType:
-	if slot_type == Equipable.EquipableSlotType.Helmet:
-		return EquipmentSlotType.Helmet
-	if slot_type == Equipable.EquipableSlotType.Neck:
-		return EquipmentSlotType.Neck
-	if slot_type == Equipable.EquipableSlotType.Chest:
-		return EquipmentSlotType.Chest
-	if slot_type == Equipable.EquipableSlotType.Waist:
-		return EquipmentSlotType.Waist
-	if slot_type == Equipable.EquipableSlotType.Legs:
-		return EquipmentSlotType.Legs
-	if slot_type == Equipable.EquipableSlotType.Boots:
-		return EquipmentSlotType.Boots
-	if slot_type == Equipable.EquipableSlotType.Gloves:
-		return EquipmentSlotType.Gloves
-	if slot_type == Equipable.EquipableSlotType.Finger:
-		return EquipmentSlotType.LeftFinger
-	if slot_type == Equipable.EquipableSlotType.Finger:
-		return EquipmentSlotType.RightFinger
-	if slot_type == Equipable.EquipableSlotType.Hand:
-		return EquipmentSlotType.LeftHand
-	if slot_type == Equipable.EquipableSlotType.Hand:
-		return EquipmentSlotType.RightHand
-	return EquipmentSlotType.None
+	if slot_type == Equipable.EquipableSlotType.HELMET:
+		return EquipmentSlotType.HELMET
+	if slot_type == Equipable.EquipableSlotType.NECK:
+		return EquipmentSlotType.NECK
+	if slot_type == Equipable.EquipableSlotType.CHEST:
+		return EquipmentSlotType.CHEST
+	if slot_type == Equipable.EquipableSlotType.WAIST:
+		return EquipmentSlotType.WAIST
+	if slot_type == Equipable.EquipableSlotType.LEGS:
+		return EquipmentSlotType.LEGS
+	if slot_type == Equipable.EquipableSlotType.BOOTS:
+		return EquipmentSlotType.BOOTS
+	if slot_type == Equipable.EquipableSlotType.GLOVES:
+		return EquipmentSlotType.GLOVES
+	if slot_type == Equipable.EquipableSlotType.FINGER:
+		return EquipmentSlotType.LEFT_FINGER
+	if slot_type == Equipable.EquipableSlotType.FINGER:
+		return EquipmentSlotType.RIGHT_FINGER
+	if slot_type == Equipable.EquipableSlotType.HAND:
+		return EquipmentSlotType.LEFT_HAND
+	if slot_type == Equipable.EquipableSlotType.HAND:
+		return EquipmentSlotType.RIGHT_HAND
+	return EquipmentSlotType.NONE
 
 
 func save():
